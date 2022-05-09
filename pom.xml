@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.qualcomm.aware</groupId>
+	<artifactId>liquibase-device-db2</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>liquibase-device-db2</name>
+	<description>Qualcomm Aware Device Liquibase</description>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>org.liquibase</groupId>
+			<artifactId>liquibase-core</artifactId>
+			<version>3.0.7</version>
+		</dependency>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>42.2.18</version>
+		</dependency>
+		
+	
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.liquibase</groupId>
+				<artifactId>liquibase-maven-plugin</artifactId>
+				<version>4.3.5</version>
+				<configuration>
+					<propertyFile>target/classes/liquibase.properties</propertyFile>
+					<promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<profiles>
+		<profile>
+			<id>local</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+				<filters>
+					<filter>src/main/dbschema/profiles/local.properties</filter>
+				</filters>
+				<resources>
+					<resource>
+						<directory>src/main/dbschema/properties</directory>
+						<filtering>true</filtering>
+					</resource>
+				</resources>
+			</build>
+		</profile>
+		<profile>
+			<id>development</id>
+			<build>
+				<filters>
+					<filter>src/main/dbschema/profiles/development.properties</filter>
+				</filters>
+				<resources>
+					<resource>
+						<directory>src/main/dbschema/properties</directory>
+						<filtering>true</filtering>
+					</resource>
+				</resources>
+			</build>
+		</profile>
+	</profiles>
+
+</project>

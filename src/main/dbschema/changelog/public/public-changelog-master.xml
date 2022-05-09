@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+
+<include
+file="src/main/dbschema/changesets/public/tables/create/create-schema-liquibase_db.xml" />
+<include
+file="src/main/dbschema/changesets/public/tables/create/create-table-device-identity.xml" />
+<include
+file="src/main/dbschema/changesets/public/tables/create/create-table-registration-req.xml" />
+<include
+file="src/main/dbschema/changesets/public/tables/create/create-table-registration-req-summory.xml" />
+<include
+file="src/main/dbschema/changesets/public/tables/create/create-type-status-enum.xml" />
+<include
+file="src/main/dbschema/changesets/public/tables/create/create-type-device-type-enum.xml" />
+<include
+file="src/main/dbschema/changesets/public/tables/constraints/create-foreingkey-constraint-device-request-summary-id-device-id.xml" />
+
+
+
+
+
+
+<include
+file="src/main/dbschema/changesets/public/tables/alter/alter-table-device-identity-device-type-enum.xml" />
+<include
+file="src/main/dbschema/changesets/public/tables/alter/alter-table-registration-req-summory.xml" />
+<include
+file="src/main/dbschema/changesets/public/tables/alter/alter-table-registration-req-summory-add-column-status.xml" />
+
+
+
+<!-- <include file="db/changeset/alter-table-device-request-summary-device-type-enum.xml"
+/> -->
+
+
+
+
+</databaseChangeLog>

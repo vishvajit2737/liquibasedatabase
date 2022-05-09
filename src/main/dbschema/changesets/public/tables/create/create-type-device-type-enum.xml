@@ -1,0 +1,18 @@
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+
+
+	<changeSet id="create_type_emum_device_registration"
+		author="vishvajit">
+		<preConditions onFail="CONTINUE">
+			<sqlCheck expectedResult="f">select exists (select 1 from
+				pg_type where typname = 'devicetypeenum');</sqlCheck>
+		</preConditions>
+		<sql>CREATE TYPE devicetypeenum as ENUM('LABEL','TRACKER')</sql>
+
+	</changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,19 @@
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+
+
+
+	<changeSet author="Vishvajit"
+		id="alter_table_t_registration_request_summary_device_type_enum">
+		<modifyDataType columnName="device_type"
+			newDataType="devicetypeenum"
+			tableName="t_registration_request_summary" />
+		<modifyDataType columnName="status"
+			newDataType="device_registration_status_enum"
+			tableName="t_registration_request_summary" />
+	</changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,15 @@
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+	<changeSet author="Vishvajit"
+		id="alter_table_t_registration_request_summary-add-column-status">
+		<addColumn tableName="t_registration_request_summary">
+			<column name="status" type="NVARCHAR(100)" defaultValue="SUBMITTED">
+				<constraints nullable="false" />
+			</column>
+		</addColumn>
+	</changeSet>
+
+</databaseChangeLog>
